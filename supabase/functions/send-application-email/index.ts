@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================================================
 // DEV MAVERICKS — Supabase Edge Function: send-application-email
 // Phase 4B: Serverless Email Dispatch via Brevo Transactional API (v3)
@@ -12,6 +13,13 @@
 // - NEVER exposes, returns, or logs API keys, tokens, or auth headers.
 // ==============================================================================
 
+// Declare global Deno environment for TypeScript IDEs when running outside Deno LSP
+declare const Deno: {
+  env: {
+    get(key: string): string | undefined;
+  };
+};
+
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
 const corsHeaders = {
@@ -25,6 +33,7 @@ interface ApplicationPayload {
   application_id?: string;
   full_name: string;
   email: string;
+  phone?: string | null;
   college?: string;
   branch?: string;
   year?: string;
@@ -54,6 +63,10 @@ function escapeHtml(str?: string | null): string {
 function buildAdminNewApplicationEmail(app: ApplicationPayload): string {
   const name = escapeHtml(app.full_name);
   const email = escapeHtml(app.email);
+  const phone = escapeHtml(app.phone);
+  const phoneDisplay = app.phone
+    ? `<a href="tel:${escapeHtml(app.phone)}" style="color: #38bdf8; text-decoration: none;">${phone}</a> &nbsp;<a href="https://wa.me/${escapeHtml(app.phone.replace(/[^0-9]/g, ''))}" target="_blank" style="color: #39D353; font-size: 11px; text-decoration: none; font-family: monospace;">[WhatsApp ↗]</a>`
+    : `<span style="color: #64748b;">Not provided</span>`;
   const college = escapeHtml(app.college || "Lingaya's Vidyapeeth");
   const branch = escapeHtml(app.branch || "Computer Science & Engineering (CSE)");
   const year = escapeHtml(app.year || "1st Year");
@@ -136,6 +149,10 @@ function buildAdminNewApplicationEmail(app: ApplicationPayload): string {
                 <tr>
                   <td style="font-size: 13px; color: #64748b; font-family: monospace;">Email:</td>
                   <td style="font-size: 14px; color: #f8fafc;"><a href="mailto:${email}" style="color: #38bdf8; text-decoration: none;">${email}</a></td>
+                </tr>
+                <tr>
+                  <td style="font-size: 13px; color: #64748b; font-family: monospace;">Phone / WhatsApp:</td>
+                  <td style="font-size: 14px; color: #f8fafc;">${phoneDisplay}</td>
                 </tr>
                 <tr>
                   <td style="font-size: 13px; color: #64748b; font-family: monospace;">College:</td>
