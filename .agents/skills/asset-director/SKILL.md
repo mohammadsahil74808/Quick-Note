@@ -199,7 +199,7 @@ assets/
 
 When activated, produce a structured **Asset Strategy Document** covering the following 25 points:
 
-*For a concrete example of a completed document, see [references/asset_plan_template.md](file:///d:/Antigrvity%20master/.agents/skills/asset-director/references/asset_plan_template.md).*
+*For a concrete example of a completed document, see [references/asset_plan_template.md](./references/asset_plan_template.md).*
 
 1. **Existing Asset Audit**: Inventory of current project assets to reuse or retire.
 2. **Asset Purpose & Necessity Matrix**: Detailed justification for every visual asset required.
@@ -226,3 +226,21 @@ When activated, produce a structured **Asset Strategy Document** covering the fo
 23. **CDN & Delivery Headers**: Cache-Control header rules and CDN distribution setup.
 24. **Performance Budget**: Target payload limits (e.g., Total initial image payload < 500KB).
 25. **Validation Checklist**: Quality gate verification rules prior to deployment.
+
+---
+
+## 11. Evaluation Prompts & Self-Test Matrix
+
+Use these 3 realistic test prompts to verify asset director intelligence:
+
+1. **Test Prompt 1 (Real vs Stock Asset Decision)**:
+   > *"We need hero images for our artisan coffee roastery website."*
+   > - **Expected Behavior**: Recommends real product photography with specific art direction (close-up bean texture, pour-over process, roastery interior). Rejects generic stock coffee cup images. Specifies AVIF primary + WebP fallback, responsive `srcset` breakpoints, and `loading="eager"` for above-fold hero.
+
+2. **Test Prompt 2 (3D Asset Pipeline)**:
+   > *"Optimize the 3D model assets for our furniture configurator. Current GLB is 45MB."*
+   > - **Expected Behavior**: Specifies Draco geometry compression, KTX2/UASTC texture compression, LOD generation (HIGH: 50K polys, LOW: 5K polys), texture atlas consolidation, and target budget of `<3MB` per model. Defines CRITICAL loading for initially visible model, DEFERRED for variants.
+
+3. **Test Prompt 3 (SVG Icon System)**:
+   > *"Set up the icon system for our developer tools dashboard."*
+   > - **Expected Behavior**: Recommends SVGO-optimized inline SVG symbol sprite (`<symbol>` + `<use>`), kebab-case naming convention (`icon-terminal.svg`), current-color fill for theme adaptation, 24x24px viewBox standard, and `aria-hidden="true"` on decorative icons with `aria-label` on functional ones.

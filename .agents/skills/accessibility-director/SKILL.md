@@ -119,7 +119,7 @@ When form validation fails:
 
 When activated, produce a structured **Accessibility Strategy** document covering the following 35 points. When code changes are explicitly requested, generate production-grade implementation code.
 
-*For a concrete example of a completed accessibility strategy document, see [references/accessibility_strategy_template.md](file:///d:/Antigrvity%20master/.agents/skills/accessibility-director/references/accessibility_strategy_template.md).*
+*For a concrete example of a completed accessibility strategy document, see [references/accessibility_strategy_template.md](./references/accessibility_strategy_template.md).*
 
 1. **Accessibility & Conformance Goals**: Target WCAG conformance level (WCAG 2.1 AA baseline).
 2. **User Group Audit**: Specific strategy for visual, motor, auditory, cognitive, and situational users.
@@ -156,3 +156,21 @@ When activated, produce a structured **Accessibility Strategy** document coverin
 33. **Accessibility Issue Priority Matrix**: Blocker, Critical, High, Medium, Low classification.
 34. **Remediation Roadmap**: Step-by-step fix schedule.
 35. **Final Quality Checklist**: Complete verification checklist prior to release.
+
+---
+
+## 10. Evaluation Prompts & Self-Test Matrix
+
+Use these 3 realistic test prompts to verify accessibility director intelligence:
+
+1. **Test Prompt 1 (Focus Trap & Modal Accessibility)**:
+   > *"Audit the accessibility of our modal dialog that opens from a product card click."*
+   > - **Expected Behavior**: Verifies focus traps to modal on open, returns focus to trigger element on close, `Escape` key dismisses, `role="dialog"` and `aria-modal="true"` are set, background content receives `aria-hidden="true"`, and tab cycling stays within modal bounds.
+
+2. **Test Prompt 2 (Color-Independent State Communication)**:
+   > *"Our form validation shows errors only by changing the input border to red."*
+   > - **Expected Behavior**: Flags as P1 Critical. Red-only error indication fails color-blind users (~8% of males). Requires `aria-invalid="true"`, visible inline error text with `aria-describedby`, and a secondary indicator (icon or border pattern) that communicates error without relying solely on color.
+
+3. **Test Prompt 3 (3D/WebGL Accessibility Fallback)**:
+   > *"Our product page has an interactive 3D configurator. How do we make it accessible?"*
+   > - **Expected Behavior**: Specifies text equivalent (`aria-label` describing current configuration), keyboard controls for orbit/zoom, reduced-motion static image fallback, screen-reader announcement of configuration changes via `aria-live="polite"`, and ensures non-3D purchase flow remains fully accessible.

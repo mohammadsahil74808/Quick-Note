@@ -1,10 +1,10 @@
 # Antigravity Master Suite
 
-[![Architecture: 3-Layer System](https://img.shields.io/badge/Architecture-3--Layer%20System-blue.svg)](file:///d:/Antigrvity%20master/AGENTS.md)
-[![Specialist Skills: 13 Suite](https://img.shields.io/badge/Skills-13%20Specialists-emerald.svg)](file:///d:/Antigrvity%20master/.agents/skills/)
-[![Test Suite: 100% Passed](https://img.shields.io/badge/Validation-30%2F30%20Passed-brightgreen.svg)](file:///d:/Antigrvity%20master/tests/MASTER_ORCHESTRATOR_FINAL_TEST.md)
+[![Architecture: 3-Layer System](https://img.shields.io/badge/Architecture-3--Layer%20System-blue.svg)](./AGENTS.md)
+[![Specialist Skills: 17 Suite](https://img.shields.io/badge/Skills-17%20Specialists-emerald.svg)](./.agents/skills/)
+[![Test Suite: 100% Passed](https://img.shields.io/badge/Validation-30%2F30%20Passed-brightgreen.svg)](./tests/MASTER_ORCHESTRATOR_FINAL_TEST.md)
 
-**Antigravity Master** is an enterprise-grade, agentic product development workspace designed to bridge the gap between probabilistic LLM intent and deterministic engineering execution. Built on a strict **3-Layer System Architecture** (Directive → Orchestration → Execution), this repository hosts a suite of **13 production specialist skills** capable of orchestrating, designing, auditing, and implementing web apps, cross-platform Flutter applications, WebGL 3D experiences, and autonomous AI agent systems.
+**Antigravity Master** is an enterprise-grade, agentic product development workspace designed to bridge the gap between probabilistic LLM intent and deterministic engineering execution. Built on a strict **3-Layer System Architecture** (Directive → Orchestration → Execution), this repository hosts a suite of **17 production specialist skills** capable of orchestrating, designing, auditing, and implementing web apps, cross-platform Flutter applications, WebGL 3D experiences, and autonomous AI agent systems.
 
 ---
 
@@ -40,15 +40,15 @@ flowchart TD
 
 | Layer | Responsibility | Directory Location | Primary Function |
 | :--- | :--- | :--- | :--- |
-| **Layer 1: Directive** | Standard Operating Procedures (SOPs) | [`directives/`](file:///d:/Antigrvity%20master/directives/README.md) | Natural-language markdown instructions defining goals, tools, and edge cases. |
-| **Layer 2: Orchestration** | Intelligent Decision & Skill Routing | [`.agents/skills/`](file:///d:/Antigrvity%20master/.agents/skills/) | Evaluates intent, selects specialist skills, coordinates parallel tasks, and enforces quality gates. |
-| **Layer 3: Execution** | Deterministic Python Operations | [`execution/`](file:///d:/Antigrvity%20master/execution/README.md) | High-reliability Python tools handling file I/O, network requests, data transformations, and API calls. |
+| **Layer 1: Directive** | Standard Operating Procedures (SOPs) | [`directives/`](./directives/README.md) | Natural-language markdown instructions defining goals, tools, and edge cases. |
+| **Layer 2: Orchestration** | Intelligent Decision & Skill Routing | [`.agents/skills/`](./.agents/skills/) | Evaluates intent, selects specialist skills, coordinates parallel tasks, and enforces quality gates. |
+| **Layer 3: Execution** | Deterministic Python Operations | [`execution/`](./execution/README.md) | High-reliability Python tools handling file I/O, network requests, data transformations, and API calls. |
 
 ---
 
 ## 🧠 Master Orchestrator & Specialist Skills Suite
 
-The repository contains **13 specialized production skills** managed by the **Master Orchestrator**. Each skill folder contains an authoritative operational instruction file ([`SKILL.md`](file:///d:/Antigrvity%20master/.agents/skills/master-orchestrator/SKILL.md)), human-readable documentation ([`README.md`](file:///d:/Antigrvity%20master/.agents/skills/master-orchestrator/README.md)), and concrete reference strategy templates ([`references/`](file:///d:/Antigrvity%20master/.agents/skills/master-orchestrator/references/orchestration_matrix_template.md)).
+The repository contains **17 specialized production skills** managed by the **Master Orchestrator**. Each skill folder contains an authoritative operational instruction file ([`SKILL.md`](./.agents/skills/master-orchestrator/SKILL.md)), human-readable documentation ([`README.md`](./.agents/skills/master-orchestrator/README.md)), and concrete reference strategy templates ([`references/`](./.agents/skills/master-orchestrator/references/orchestration_matrix_template.md)).
 
 ```mermaid
 flowchart LR
@@ -90,19 +90,23 @@ flowchart LR
 
 | Skill Folder | Role / Category | Primary Focus & Capabilities | Reference Template |
 | :--- | :--- | :--- | :--- |
-| [`master-orchestrator`](file:///d:/Antigrvity%20master/.agents/skills/master-orchestrator/) | **Master Orchestrator** | Multi-skill coordination, category detection (Web/Flutter/AI), dependency graphs, 5 Quality Gates, critic fix loops. | [Orchestration Matrix](file:///d:/Antigrvity%20master/.agents/skills/master-orchestrator/references/orchestration_matrix_template.md) |
-| [`domain-specific-skills-director`](file:///d:/Antigrvity%20master/.agents/skills/domain-specific-skills-director/) | **Domain Strategy** | Multi-domain classification (Fintech, Healthcare, SaaS, AI, DevTools), user roles, critical workflows, trust compliance. | [Domain Strategy](file:///d:/Antigrvity%20master/.agents/skills/domain-specific-skills-director/references/domain_strategy_template.md) |
-| [`design-director`](file:///d:/Antigrvity%20master/.agents/skills/design-director/) | **Visual Art Director** | Bespoke product identity, ratio-based typography matrix, functional color tokens, spacing grid, 8-state component rules. | [Design Direction](file:///d:/Antigrvity%20master/.agents/skills/design-director/references/design_direction_template.md) |
-| [`anti-ai-design`](file:///d:/Antigrvity%20master/.agents/skills/anti-ai-design/) | **Visual Critic & Anti-Cliché** | Cliché elimination (purple glowing orbs, glassmorphism overlays, repetitive cards), 1,000 Products Test, subtraction audit. | [Audit Plan](file:///d:/Antigrvity%20master/.agents/skills/anti-ai-design/references/audit_plan_template.md) |
-| [`asset-director`](file:///d:/Antigrvity%20master/.agents/skills/asset-director/) | **Media Pipeline Architect** | Sourcing strategy, multi-format media pipelines (AVIF/WebP/WebM/KTX2), SVG symbol sprites, priority loading. | [Asset Strategy Plan](file:///d:/Antigrvity%20master/.agents/skills/asset-director/references/asset_plan_template.md) |
-| [`3d-experience-director`](file:///d:/Antigrvity%20master/.agents/skills/3d-experience-director/) | **3D & Graphics Specialist** | Technology-agnostic 3D rendering (Three.js, R3F, WebGL/WebGPU, Flutter 3D), Draco/KTX2 mesh compression, 4-tier fallbacks. | [3D Experience Plan](file:///d:/Antigrvity%20master/.agents/skills/3d-experience-director/references/3d_experience_plan_template.md) |
-| [`motion-director`](file:///d:/Antigrvity%20master/.agents/skills/motion-director/) | **Motion Architect** | 4-level motion hierarchy, 100-300ms duration tokens, spring physics curves, GPU-whitelisted CSS, `prefers-reduced-motion`. | [Motion Plan](file:///d:/Antigrvity%20master/.agents/skills/motion-director/references/motion_plan_template.md) |
-| [`performance-engineer`](file:///d:/Antigrvity%20master/.agents/skills/performance-engineer/) | **Systems Performance Architect**| Core Web Vitals (LCP, INP, CLS), WebGL draw calls & VRAM caps, Flutter rebuild narrowing, Dart Isolates, memory leak checks. | [Performance Plan](file:///d:/Antigrvity%20master/.agents/skills/performance-engineer/references/performance_plan_template.md) |
-| [`accessibility-director`](file:///d:/Antigrvity%20master/.agents/skills/accessibility-director/) | **WCAG 2.1 AA Compliance** | Screen-reader ARIA/Semantics trees, 200% font scale survival, 48x48px touch targets, visible focus traps, 3D text fallbacks. | [Accessibility Strategy](file:///d:/Antigrvity%20master/.agents/skills/accessibility-director/references/accessibility_strategy_template.md) |
-| [`security-director`](file:///d:/Antigrvity%20master/.agents/skills/security-director/) | **Security Architect** | Security-by-Design, STRIDE threat model, server-side RBAC/ABAC, BOLA/IDOR protection, OWASP defenses, AI prompt injection & tool gates. | [Security Strategy](file:///d:/Antigrvity%20master/.agents/skills/security-director/references/security_strategy_template.md) |
-| [`premium-web`](file:///d:/Antigrvity%20master/.agents/skills/premium-web/) | **Frontend Web Developer** | Creative web architecture (Next.js, Vite, React, Vue, Svelte, HTML/CSS/JS), fluid `clamp()` design tokens, 3-tier progressive enhancement. | [Implementation Plan](file:///d:/Antigrvity%20master/.agents/skills/premium-web/references/implementation_plan_template.md) |
-| [`premium-flutter`](file:///d:/Antigrvity%20master/.agents/skills/premium-flutter/) | **Cross-Platform Flutter Architect**| Multi-platform Flutter apps (iOS, Android, Desktop, Web), adaptive vs responsive layouts, `CustomPainter`, Dart Isolates, 8-state widgets. | [Implementation Plan](file:///d:/Antigrvity%20master/.agents/skills/premium-flutter/references/implementation_plan_template.md) |
-| [`final-product-critic`](file:///d:/Antigrvity%20master/.agents/skills/final-product-critic/) | **Quality Gatekeeper** | Independent empirical product audit, 13-point category review order, P0-P3 severity matrix, defensible `SHIP` / `BLOCKED` verdicts. | [Product Review](file:///d:/Antigrvity%20master/.agents/skills/final-product-critic/references/product_review_template.md) |
+| [`master-orchestrator`](./.agents/skills/master-orchestrator/) | **Master Orchestrator** | Multi-skill coordination, category detection (Web/Flutter/AI), dependency graphs, 5 Quality Gates, critic fix loops. | [Orchestration Matrix](./.agents/skills/master-orchestrator/references/orchestration_matrix_template.md) |
+| [`domain-specific-skills-director`](./.agents/skills/domain-specific-skills-director/) | **Domain Strategy** | Multi-domain classification (Fintech, Healthcare, SaaS, AI, DevTools), user roles, critical workflows, trust compliance. | [Domain Strategy](./.agents/skills/domain-specific-skills-director/references/domain_strategy_template.md) |
+| [`design-director`](./.agents/skills/design-director/) | **Visual Art Director** | Bespoke product identity, ratio-based typography matrix, functional color tokens, spacing grid, 8-state component rules. | [Design Direction](./.agents/skills/design-director/references/design_direction_template.md) |
+| [`anti-ai-design`](./.agents/skills/anti-ai-design/) | **Visual Critic & Anti-Cliché** | Cliché elimination (purple glowing orbs, glassmorphism overlays, repetitive cards), 1,000 Products Test, subtraction audit. | [Audit Plan](./.agents/skills/anti-ai-design/references/audit_plan_template.md) |
+| [`asset-director`](./.agents/skills/asset-director/) | **Media Pipeline Architect** | Sourcing strategy, multi-format media pipelines (AVIF/WebP/WebM/KTX2), SVG symbol sprites, priority loading. | [Asset Strategy Plan](./.agents/skills/asset-director/references/asset_plan_template.md) |
+| [`3d-experience-director`](./.agents/skills/3d-experience-director/) | **3D & Graphics Specialist** | Technology-agnostic 3D rendering (Three.js, R3F, WebGL/WebGPU, Flutter 3D), Draco/KTX2 mesh compression, 4-tier fallbacks. | [3D Experience Plan](./.agents/skills/3d-experience-director/references/3d_experience_plan_template.md) |
+| [`motion-director`](./.agents/skills/motion-director/) | **Motion Architect** | 4-level motion hierarchy, 100-300ms duration tokens, spring physics curves, GPU-whitelisted CSS, `prefers-reduced-motion`. | [Motion Plan](./.agents/skills/motion-director/references/motion_plan_template.md) |
+| [`performance-engineer`](./.agents/skills/performance-engineer/) | **Systems Performance Architect**| Core Web Vitals (LCP, INP, CLS), WebGL draw calls & VRAM caps, Flutter rebuild narrowing, Dart Isolates, memory leak checks. | [Performance Plan](./.agents/skills/performance-engineer/references/performance_plan_template.md) |
+| [`accessibility-director`](./.agents/skills/accessibility-director/) | **WCAG 2.1 AA Compliance** | Screen-reader ARIA/Semantics trees, 200% font scale survival, 48x48px touch targets, visible focus traps, 3D text fallbacks. | [Accessibility Strategy](./.agents/skills/accessibility-director/references/accessibility_strategy_template.md) |
+| [`security-director`](./.agents/skills/security-director/) | **Security Architect** | Security-by-Design, STRIDE threat model, server-side RBAC/ABAC, BOLA/IDOR protection, OWASP defenses, AI prompt injection & tool gates. | [Security Strategy](./.agents/skills/security-director/references/security_strategy_template.md) |
+| [`premium-web`](./.agents/skills/premium-web/) | **Frontend Web Developer** | Creative web architecture (Next.js, Vite, React, Vue, Svelte, HTML/CSS/JS), fluid `clamp()` design tokens, 3-tier progressive enhancement. | [Implementation Plan](./.agents/skills/premium-web/references/implementation_plan_template.md) |
+| [`premium-flutter`](./.agents/skills/premium-flutter/) | **Cross-Platform Flutter Architect**| Multi-platform Flutter apps (iOS, Android, Desktop, Web), adaptive vs responsive layouts, `CustomPainter`, Dart Isolates, 8-state widgets. | [Implementation Plan](./.agents/skills/premium-flutter/references/implementation_plan_template.md) |
+| [`backend-architect`](./.agents/skills/backend-architect/) | **Backend & Database Architect** | Supabase/PostgreSQL schema modeling, REST/GraphQL APIs, serverless functions, JWT auth, and Row Level Security. | [Backend Architecture Plan](./.agents/skills/backend-architect/references/backend_architecture_template.md) |
+| [`ml-pipeline-architect`](./.agents/skills/ml-pipeline-architect/) | **AI/ML Systems Architect** | Data engineering, feature pipelines, vector databases (RAG), embedding generation, model inference, and AI guardrails. | [ML Pipeline Plan](./.agents/skills/ml-pipeline-architect/references/ml_pipeline_plan_template.md) |
+| [`qa-testing-specialist`](./.agents/skills/qa-testing-specialist/) | **QA Automation Specialist** | Multi-tier test pyramids (Unit, Integration, E2E, A11y), Vitest/Playwright suites, contract testing, and CI gates. | [Test Strategy Plan](./.agents/skills/qa-testing-specialist/references/test_strategy_template.md) |
+| [`devops-deployment-engineer`](./.agents/skills/devops-deployment-engineer/) | **DevOps & Cloud Architect** | Docker multi-stage builds, GitHub Actions CI/CD pipelines, container orchestration, edge hosting, and monitoring. | [DevOps Deployment Plan](./.agents/skills/devops-deployment-engineer/references/devops_deployment_template.md) |
+| [`final-product-critic`](./.agents/skills/final-product-critic/) | **Quality Gatekeeper** | Independent empirical product audit, 13-point category review order, P0-P3 severity matrix, defensible `SHIP` / `BLOCKED` verdicts. | [Product Review](./.agents/skills/final-product-critic/references/product_review_template.md) |
 
 ---
 
@@ -206,7 +210,7 @@ cd Antigravity-Master
 cp .env.example .env
 ```
 
-### 2. Environment Variables Baseline ([`.env.example`](file:///d:/Antigrvity%20master/.env.example))
+### 2. Environment Variables Baseline ([`.env.example`](./.env.example))
 ```ini
 # Environment Configuration
 ENVIRONMENT=development
@@ -223,7 +227,7 @@ MAX_EXECUTION_TIMEOUT_SECONDS=300
 
 ## 🧪 Testing & System Validation
 
-This repository includes a comprehensive 30-point evaluation test suite ([`tests/MASTER_ORCHESTRATOR_FINAL_TEST.md`](file:///d:/Antigrvity%20master/tests/MASTER_ORCHESTRATOR_FINAL_TEST.md)) to benchmark orchestration accuracy across 6 realistic product scenarios:
+This repository includes a comprehensive 30-point evaluation test suite ([`tests/MASTER_ORCHESTRATOR_FINAL_TEST.md`](./tests/MASTER_ORCHESTRATOR_FINAL_TEST.md)) to benchmark orchestration accuracy across 6 realistic product scenarios:
 
 1. **Test Case 1 (Premium AI Web Product)**: Validates web category routing, `premium-web` implementation, anti-AI design, and explicit skipping of `premium-flutter` and `3d-experience-director`.
 2. **Test Case 2 (Flutter AI Voice Assistant With 3D)**: Validates mobile Flutter routing, `3d-experience-director` integration, `security-director` human approval gates for tool execution, and skipping `premium-web`.
@@ -245,4 +249,4 @@ python skill-creator/scripts/package_skill.py .agents/skills/design-director
 
 ## 📄 License & Usage
 
-All custom specialist skills, architecture specifications, and directives in this repository are maintained for agentic application development under the project's standard license. Tooling within `skill-creator/` is licensed under [`skill-creator/LICENSE.txt`](file:///d:/Antigrvity%20master/skill-creator/LICENSE.txt).
+All custom specialist skills, architecture specifications, and directives in this repository are maintained for agentic application development under the project's standard license. Tooling within `skill-creator/` is licensed under [`skill-creator/LICENSE.txt`](./skill-creator/LICENSE.txt).

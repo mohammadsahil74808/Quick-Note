@@ -134,7 +134,7 @@ For SaaS architectures, enforce tenant isolation at database query, object stora
 
 When activated, produce a structured **Security Architecture & Risk Strategy** document covering the following 37 points. When code implementation is explicitly requested, generate secure production code.
 
-*For a concrete example of a completed security strategy document, see [references/security_strategy_template.md](file:///d:/Antigrvity%20master/.agents/skills/security-director/references/security_strategy_template.md).*
+*For a concrete example of a completed security strategy document, see [references/security_strategy_template.md](./references/security_strategy_template.md).*
 
 1. **Security Objectives & Risk Profile**: Product sensitivity classification and security posture.
 2. **Asset Inventory**: Critical, High, Medium, and Public asset breakdown.
@@ -173,3 +173,21 @@ When activated, produce a structured **Security Architecture & Risk Strategy** d
 35. **Security Risk Priority Matrix**: Blocker, Critical, High, Medium, Low vulnerability ranking.
 36. **Remediation Roadmap**: Step-by-step security hardening schedule.
 37. **Final Security Quality Checklist**: Verification checklist before production deployment.
+
+---
+
+## 10. Evaluation Prompts & Self-Test Matrix
+
+Use these 3 realistic test prompts to verify security director intelligence:
+
+1. **Test Prompt 1 (IDOR/BOLA Detection)**:
+   > *"Our API endpoint `GET /api/invoices/:id` returns invoice data. Users pass their invoice ID from the URL. We check if the user is logged in."*
+   > - **Expected Behavior**: Flags P0 Blocker — authentication alone is insufficient. Requires server-side authorization verifying `invoice.owner_id === request.user.id`. Without this, any authenticated user can access any invoice by guessing IDs (IDOR/BOLA vulnerability, OWASP API #1).
+
+2. **Test Prompt 2 (AI Agent Tool Permission Gate)**:
+   > *"Our AI assistant can execute shell commands and delete database records based on user natural-language requests."*
+   > - **Expected Behavior**: Flags P0 Blocker — destructive tool execution without human confirmation gates. Requires explicit approval dialog before shell execution and database deletion, system prompt isolation from user content (prevent indirect prompt injection), and action audit logging.
+
+3. **Test Prompt 3 (Client-Side Secret Exposure)**:
+   > *"We store our Supabase service_role key in a Next.js environment variable `NEXT_PUBLIC_SUPABASE_SERVICE_KEY` for server actions."*
+   > - **Expected Behavior**: Flags P0 Blocker — `NEXT_PUBLIC_` prefix exposes secrets to the client bundle. `service_role` key bypasses Row Level Security. Must use server-only environment variables (no `NEXT_PUBLIC_` prefix) and access via API routes or Server Actions only.

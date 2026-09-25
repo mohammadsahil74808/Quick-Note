@@ -143,7 +143,7 @@ Construct a functional, semantic color architecture:
 
 When triggered, produce a structured **Design Direction Document** covering the following 15 points. Do NOT output raw implementation code unless specifically requested.
 
-*For a concrete example of a completed document, see [references/design_direction_template.md](file:///d:/Antigrvity%20master/.agents/skills/design-director/references/design_direction_template.md).*
+*For a concrete example of a completed document, see [references/design_direction_template.md](./references/design_direction_template.md).*
 
 1. **Product Interpretation & Context**: Core product identity, target audience, and operating environment.
 2. **Visual Concept & Atmosphere**: Distinctive visual metaphor, impression, and character.
@@ -160,3 +160,21 @@ When triggered, produce a structured **Design Direction Document** covering the 
 13. **Accessibility Baseline**: Contrast specs, touch targets, keyboard navigation, and reduced motion.
 14. **Performance Constraints**: Visual budget, effect limitations, and rendering boundaries.
 15. **Implementation Roadmap**: Step-by-step guidance for frontend engineering alignment.
+
+---
+
+## 9. Evaluation Prompts & Self-Test Matrix
+
+Use these 3 realistic test prompts to verify design director intelligence:
+
+1. **Test Prompt 1 (Anti-Template Visual Identity)**:
+   > *"Design the visual direction for a veterinary telemedicine platform targeting rural farmers."*
+   > - **Expected Behavior**: Produces a warm, utilitarian design concept—not a dark-mode SaaS dashboard. Selects earthy, natural color tokens; readable serif/sans-serif pairing; high-density information layout optimized for low-bandwidth mobile devices. Rejects purple gradients, glassmorphism, and floating orbs.
+
+2. **Test Prompt 2 (Content-First Over Trend-First)**:
+   > *"I want a design direction for a real-time financial trading terminal used by professional day traders."*
+   > - **Expected Behavior**: Prioritizes data density, monospaced numerics, high-contrast dark surfaces, hairline grid separators, and minimal decorative elements. Does NOT apply airy SaaS spacing or lifestyle photography. Specifies keyboard-first interaction strategy.
+
+3. **Test Prompt 3 (Design-Engineering Handoff Clarity)**:
+   > *"Establish the visual identity for an AI code review tool and generate the design tokens."*
+   > - **Expected Behavior**: Outputs concrete CSS custom properties (color, spacing, typography scale with ratios), explicit breakpoint rules, and component surface hierarchy—not abstract mood descriptions. Delegates motion and 3D to their respective directors.

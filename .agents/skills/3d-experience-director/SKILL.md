@@ -200,7 +200,7 @@ Reject generic 3D clichés that lack product context:
 
 When activated, produce a structured **3D Experience Plan** covering the following 24 points:
 
-*For a concrete example of a completed plan, see [references/3d_experience_plan_template.md](file:///d:/Antigrvity%20master/.agents/skills/3d-experience-director/references/3d_experience_plan_template.md).*
+*For a concrete example of a completed plan, see [references/3d_experience_plan_template.md](./references/3d_experience_plan_template.md).*
 
 1. **3D Purpose & Value Proposition**: Explicit justification for using 3D.
 2. **Experience Category**: Primary experience type (e.g., Configurator, Hero, Data Viz).
@@ -226,3 +226,21 @@ When activated, produce a structured **3D Experience Plan** covering the followi
 22. **Failure Handling & WebGL Recovery**: Context loss handler, network retry, memory protection.
 23. **Anti-Patterns Excluded**: List of generic 3D clichés banned for this project.
 24. **Validation Checklist**: Final quality gate verification rules.
+
+---
+
+## 11. Evaluation Prompts & Self-Test Matrix
+
+Use these 3 realistic test prompts to verify 3D experience director intelligence:
+
+1. **Test Prompt 1 (3D Necessity Gate)**:
+   > *"Add a 3D spinning globe to our company's About Us page."*
+   > - **Expected Behavior**: Challenges the request. A static About page rarely benefits from real-time WebGL. Recommends a pre-rendered video loop or SVG illustration instead. If client insists, specifies a LOW-tier minimal globe with `<100 draw calls`, `webglcontextlost` handler, and 2D poster fallback.
+
+2. **Test Prompt 2 (Performance-Tiered 3D)**:
+   > *"Build an interactive 3D product configurator for a sneaker customization tool."*
+   > - **Expected Behavior**: Specifies a justified 3D configurator. Defines HIGH/MED/LOW/FALLBACK tiers. HIGH: Full PBR materials + environment map. LOW: Reduced polygon count + KTX2 compressed textures. FALLBACK: 360° image sequence. Draco-compressed GLB under 2MB. Touch orbit + pinch zoom on mobile.
+
+3. **Test Prompt 3 (WebGL Crash Recovery)**:
+   > *"Our 3D hero section crashes on Samsung mid-range phones after 30 seconds."*
+   > - **Expected Behavior**: Diagnoses VRAM exhaustion. Recommends texture atlas downsampling, `renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))`, geometry instancing, and `webglcontextlost`/`webglcontextrestored` event handlers with automatic 2D poster swap.

@@ -127,7 +127,7 @@ Conclude every review with an explicit verdict:
 
 Produce structured reviews using the following standard template:
 
-*For a concrete example of a completed product critique, see [references/product_review_template.md](file:///d:/Antigrvity%20master/.agents/skills/final-product-critic/references/product_review_template.md).*
+*For a concrete example of a completed product critique, see [references/product_review_template.md](./references/product_review_template.md).*
 
 ```markdown
 # Product Review & Quality Critique: [Product Name]

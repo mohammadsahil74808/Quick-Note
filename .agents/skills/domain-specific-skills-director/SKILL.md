@@ -114,7 +114,7 @@ Synthesize domain requirements into directives for all specialized director skil
 
 When activated, produce a structured **Domain-Specific Product Strategy** document covering the following 25 points:
 
-*For a concrete example of a completed domain strategy document, see [references/domain_strategy_template.md](file:///d:/Antigrvity%20master/.agents/skills/domain-specific-skills-director/references/domain_strategy_template.md).*
+*For a concrete example of a completed domain strategy document, see [references/domain_strategy_template.md](./references/domain_strategy_template.md).*
 
 1. **Product Classification**: Primary and secondary domain categorization.
 2. **Product Format & Medium**: Delivery medium (Web App, Mobile App, Dashboard, Extension).
@@ -141,3 +141,21 @@ When activated, produce a structured **Domain-Specific Product Strategy** docume
 23. **Conflict Resolution Matrix**: Priority ordering when domain workflows clash with visual ideas.
 24. **Priority-Ranked Feature Roadmap**: Phased implementation plan for domain features.
 25. **Domain Quality Checklist**: Verification checklist before proceeding to visual design.
+
+---
+
+## 9. Evaluation Prompts & Self-Test Matrix
+
+Use these 3 realistic test prompts to verify domain-specific skills director intelligence:
+
+1. **Test Prompt 1 (Multi-Domain Classification)**:
+   > *"Build a platform where farmers can sell produce directly to restaurants with real-time pricing and route-optimized delivery tracking."*
+   > - **Expected Behavior**: Classifies as Primary: AgriTech/Ecommerce, Secondary: Logistics. Identifies user roles (Farmer Seller, Restaurant Buyer, Delivery Driver). Maps critical workflows: listing, ordering, payment, live delivery tracking. Specifies trust signals (food safety certs, verified seller badges) and domain-specific UX patterns (harvest calendar, bulk ordering, route maps).
+
+2. **Test Prompt 2 (Fintech Trust & Compliance)**:
+   > *"Build a peer-to-peer lending platform for small business loans."*
+   > - **Expected Behavior**: Classifies as Primary: Fintech. Flags mandatory compliance requirements (KYC/AML verification, lending regulations). Specifies trust architecture (identity verification gates, transaction audit trails, regulatory disclaimers). Designs risk-appropriate workflows with explicit confirmation steps for financial commitments.
+
+3. **Test Prompt 3 (DevTools vs Consumer App)**:
+   > *"Build a web-based database management tool for developers."*
+   > - **Expected Behavior**: Classifies as Primary: DevTools. Specifies keyboard-first interaction, compact density layout, SQL/query editor with syntax highlighting, tabbed multi-connection management, and schema visualization. Does NOT apply consumer app patterns (onboarding carousels, lifestyle imagery, large touch targets).

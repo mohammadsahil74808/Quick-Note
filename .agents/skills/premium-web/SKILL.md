@@ -177,7 +177,7 @@ When generating or refactoring code:
 
 When activated, produce a structured **Premium Web Implementation Strategy** document covering the following 26 points. When code generation is explicitly requested, produce complete, production-grade files.
 
-*For a concrete example of a completed implementation strategy document, see [references/implementation_plan_template.md](file:///d:/Antigrvity%20master/.agents/skills/premium-web/references/implementation_plan_template.md).*
+*For a concrete example of a completed implementation strategy document, see [references/implementation_plan_template.md](./references/implementation_plan_template.md).*
 
 1. **Project & Stack Analysis**: Tech stack audit and dependency integration plan.
 2. **Experience Architecture**: Primary user journey and core emotional impression.
@@ -205,3 +205,21 @@ When activated, produce a structured **Premium Web Implementation Strategy** doc
 24. **Security & Sanitization Baseline**: Client-side secret isolation, XSS prevention, CSP rules.
 25. **Testing & Visual Regression Strategy**: Breakpoint verification, touch target testing, dark mode checks.
 26. **Final Quality Checklist**: Complete verification checklist prior to production deployment.
+
+---
+
+## 9. Evaluation Prompts & Self-Test Matrix
+
+Use these 3 realistic test prompts to verify premium web intelligence:
+
+1. **Test Prompt 1 (8-State Component Implementation)**:
+   > *"Implement a premium search input component for our Next.js dashboard."*
+   > - **Expected Behavior**: Generates a complete component covering all 8 states (Default, Hover, Focus with visible ring, Active/Pressed, Disabled with `aria-disabled`, Loading with shimmer, Error with `aria-invalid` + inline message, Success with confirmation). Uses CSS custom properties from the design system, not hardcoded values.
+
+2. **Test Prompt 2 (Existing Codebase Adaptation)**:
+   > *"Add a settings page to our existing Vite + React project that uses Zustand and CSS Modules."*
+   > - **Expected Behavior**: Inspects `package.json` first. Reuses existing Zustand store patterns, CSS Modules conventions, and router setup. Does NOT introduce Tailwind, Redux, or styled-components. Follows the project's established file naming and directory conventions.
+
+3. **Test Prompt 3 (Progressive Enhancement & 3D Fallback)**:
+   > *"Implement a hero section with a Three.js background canvas that falls back gracefully."*
+   > - **Expected Behavior**: Implements 3-tier progressive enhancement. Tier 1: Full HTML content readable without JS. Tier 2: JS hydration with smooth transitions. Tier 3: Three.js canvas. Handles `webglcontextlost` by swapping to AVIF poster image. Clamps pixel ratio on mobile. Disposes renderer/geometry/materials on unmount.

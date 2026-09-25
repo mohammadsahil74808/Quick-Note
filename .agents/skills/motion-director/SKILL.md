@@ -175,7 +175,7 @@ Actively identify and eliminate generic, overused AI animation clichés:
 
 When activated, produce a structured **Motion Plan Document** covering the following 21 points:
 
-*For a concrete example of a completed plan, see [references/motion_plan_template.md](file:///d:/Antigrvity%20master/.agents/skills/motion-director/references/motion_plan_template.md).*
+*For a concrete example of a completed plan, see [references/motion_plan_template.md](./references/motion_plan_template.md).*
 
 1. **Motion Concept & Intent**: The underlying philosophy governing movement.
 2. **Brand Motion Personality**: Selected personality mode (e.g., *Precise & Technical*, *Editorial & Elegant*, *Snappy & Productive*).
@@ -198,3 +198,21 @@ When activated, produce a structured **Motion Plan Document** covering the follo
 19. **Performance Strategy & GPU Safeguards**: GPU property whitelist and reflow prevention.
 20. **Anti-Patterns Excluded**: List of banned motion clichés for this specific project.
 21. **Validation & Quality Checklist**: Verification checklist prior to implementation.
+
+---
+
+## 10. Evaluation Prompts & Self-Test Matrix
+
+Use these 3 realistic test prompts to verify motion director intelligence:
+
+1. **Test Prompt 1 (Purposeful Over Decorative Motion)**:
+   > *"Add animations to our enterprise invoice management SaaS dashboard."*
+   > - **Expected Behavior**: Specifies Level 1 micro-interactions (button press feedback, toggle states) and Level 2 component transitions (dropdown menus, modal reveals) with `duration-fast` / `duration-normal` tokens. Does NOT apply cinematic Level 4 scroll storytelling or bouncy springs to a serious financial tool.
+
+2. **Test Prompt 2 (Reduced-Motion Compliance)**:
+   > *"Design the motion system for a health monitoring app used by elderly patients."*
+   > - **Expected Behavior**: Defaults to minimal motion (subtle opacity cross-fades). Maps every animation to a `prefers-reduced-motion: reduce` fallback. Avoids parallax, large spatial translates, and auto-playing loops. Ensures ARIA live regions fire immediately regardless of transition duration.
+
+3. **Test Prompt 3 (Gesture Physics & Interruption)**:
+   > *"Implement drag-to-dismiss on a mobile card stack with spring physics."*
+   > - **Expected Behavior**: Specifies 1:1 finger-tracking during drag, velocity transfer on release using `spring-responsive` tokens, and interruptible animations. If user re-grabs mid-spring, animation redirects from current position without jumping.

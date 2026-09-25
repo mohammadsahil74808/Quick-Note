@@ -180,7 +180,7 @@ Document every performance issue using this 7-step engineering template:
 
 When activated, produce a structured **Performance Engineering Plan** covering the following 23 points:
 
-*For a concrete example of a completed performance plan, see [references/performance_plan_template.md](file:///d:/Antigrvity%20master/.agents/skills/performance-engineer/references/performance_plan_template.md).*
+*For a concrete example of a completed performance plan, see [references/performance_plan_template.md](./references/performance_plan_template.md).*
 
 1. **Performance Baseline & Measurement**: Initial metrics across loading, frame rate, and memory.
 2. **User-Perceived Responsiveness Assessment**: Analysis of loading feedback and interaction response.
@@ -205,3 +205,21 @@ When activated, produce a structured **Performance Engineering Plan** covering t
 21. **Regression Prevention**: Automated budget checks, bundle monitoring, and CI/CD safeguards.
 22. **Priority-Ranked Fix Roadmap**: Step-by-step optimization schedule.
 23. **Validation & Quality Checklist**: Final verification criteria before release.
+
+---
+
+## 11. Evaluation Prompts & Self-Test Matrix
+
+Use these 3 realistic test prompts to verify performance engineer intelligence:
+
+1. **Test Prompt 1 (Diagnosing INP Regression)**:
+   > *"Our Next.js dashboard's INP jumped from 80ms to 450ms after adding a filter sidebar with 200 checkbox options."*
+   > - **Expected Behavior**: Identifies synchronous re-render of 200 DOM nodes on every checkbox change as root cause. Recommends debounced filter state updates (`requestIdleCallback`), virtual list rendering for checkbox items, and `startTransition()` for non-urgent UI updates. Measures before/after INP.
+
+2. **Test Prompt 2 (3D Mobile Thermal Budget)**:
+   > *"Our Three.js product viewer works fine for 2 minutes on iPhone, then frame rate drops to 8 FPS."*
+   > - **Expected Behavior**: Diagnoses thermal throttling (not a code bug). Recommends `renderer.setPixelRatio(1.0)` on mobile, draw call reduction via geometry instancing, `requestAnimationFrame` pause when tab is backgrounded, and automatic quality tier downgrade after detecting sustained frame drops below 24 FPS.
+
+3. **Test Prompt 3 (Bundle Size Audit)**:
+   > *"Our Vite landing page bundle is 2.3MB gzipped. Lighthouse performance score is 34."*
+   > - **Expected Behavior**: Runs bundle analysis (`npx vite-bundle-visualizer`). Identifies likely culprits: unshaken lodash/moment, inline source maps, uncompressed hero images in JS bundle. Recommends tree-shaking, dynamic `import()` for below-fold sections, AVIF/WebP image pipeline, and font subsetting. Sets budget target: `<200KB` main JS chunk.

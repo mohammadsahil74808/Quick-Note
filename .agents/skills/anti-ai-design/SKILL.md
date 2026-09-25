@@ -164,7 +164,7 @@ Before approving any design, verify against this 12-point quality gate:
 
 When activated, produce a structured **Anti-AI Design Audit Document** covering the following 22 points:
 
-*For a concrete example of a completed audit document, see [references/audit_plan_template.md](file:///d:/Antigrvity%20master/.agents/skills/anti-ai-design/references/audit_plan_template.md).*
+*For a concrete example of a completed audit document, see [references/audit_plan_template.md](./references/audit_plan_template.md).*
 
 1. **Overall Originality Assessment**: High-level evaluation of unique character vs generic trends.
 2. **Genericity & AI-Template Risk Level**: Risk score (Low / Medium / High / Critical).
@@ -188,3 +188,21 @@ When activated, produce a structured **Anti-AI Design Audit Document** covering 
 20. **Medium-Priority Improvements**: Detailed MEDIUM findings and corrections.
 21. **Recommended Visual Direction**: Art-directed design roadmap for differentiation.
 22. **Final Quality Score & Verdict**: Final pass/fail verdict with actionable next steps.
+
+---
+
+## 10. Evaluation Prompts & Self-Test Matrix
+
+Use these 3 realistic test prompts to verify anti-AI design intelligence:
+
+1. **Test Prompt 1 (Detecting Generic AI Landing Page)**:
+   > *"Review our new AI analytics SaaS landing page. It has a centered H1 'Unlock the Power of AI', purple-to-cyan gradient background, three floating glassmorphism feature cards, and a glowing particle mesh canvas."*
+   > - **Expected Behavior**: Flags CRITICAL genericity. Identifies centered layout + gradient + glassmorphism + particles as a textbook AI template. Demands specific product content, asymmetric layout, semantic color system, and subtraction of decorative particles. Fails the "1,000 Products Test".
+
+2. **Test Prompt 2 (Preserving Legitimate Design Choices)**:
+   > *"Critique our dark-mode developer CLI dashboard. It uses monospaced JetBrains Mono, high-density terminal-style output panels, hairline borders, and a single green accent color for success states."*
+   > - **Expected Behavior**: Recognizes this as intentional, domain-appropriate design. Does NOT flag dark mode or monospaced fonts as clichés. May suggest minor refinements (typography scale ratio, secondary accent for warnings) but approves the core direction as product-specific and distinctive.
+
+3. **Test Prompt 3 (Visual System Incoherence)**:
+   > *"Our luxury fashion e-commerce uses serif display type, cartoon flat illustrations, neon green buttons, and bouncy spring animations."*
+   > - **Expected Behavior**: Flags CRITICAL visual incoherence. Luxury serif clashes with cartoon illustrations and neon colors. Recommends unified visual voice: either editorial luxury (photography, restrained palette, deliberate motion) or playful brand (geometric sans, illustrations, vibrant palette)—not both.

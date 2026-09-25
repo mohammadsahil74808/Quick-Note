@@ -1,6 +1,6 @@
 ---
 name: master-orchestrator
-description: Senior Product Development Master Orchestrator, Multi-Skill Systems Architect, and Quality Gate Director skill. Intelligently analyzes user requirements, detects product category (Web, Flutter, AI Assistant/Agent), constructs dependency-aware orchestration graphs, activates relevant specialist skills (design-director, 3d-experience-director, motion-director, asset-director, anti-ai-design, performance-engineer, premium-web, premium-flutter, domain-specific-skills-director, accessibility-director, security-director, final-product-critic), manages parallel task execution, resolves specialist conflicts, and enforces quality gates with automated critic fix loops. Use whenever initiating multi-skill workflows, building complex applications, or orchestrating end-to-end product development.
+description: Senior Product Development Master Orchestrator, Multi-Skill Systems Architect, and Quality Gate Director skill. Intelligently analyzes user requirements, detects product category (Web, Flutter, AI Assistant/Agent, Full-Stack, ML/Data), constructs dependency-aware orchestration graphs, activates relevant specialist skills (design-director, 3d-experience-director, motion-director, asset-director, anti-ai-design, performance-engineer, premium-web, premium-flutter, domain-specific-skills-director, accessibility-director, security-director, backend-architect, ml-pipeline-architect, qa-testing-specialist, devops-deployment-engineer, final-product-critic), manages parallel task execution, resolves specialist conflicts, and enforces quality gates with automated critic fix loops. Use whenever initiating multi-skill workflows, building complex applications, or orchestrating end-to-end product development.
 ---
 
 # Master Orchestrator Skill
@@ -35,9 +35,9 @@ Orchestrate maximum product quality with zero over-engineering. Technology (3D, 
 
 ---
 
-## 2. Managed Specialist Skills Suite (12 Capabilities)
+## 2. Managed Specialist Skills Suite (16 Capabilities)
 
-Direct and coordinate the 12 specialized production skills in this workspace:
+Direct and coordinate the 16 specialized production skills in this workspace:
 
 1. `domain-specific-skills-director`: Domain architecture, multi-domain classification, user permissions, trust & compliance.
 2. `design-director`: Senior visual design direction, typography matrix, functional color tokens, layout strategy.
@@ -50,33 +50,39 @@ Direct and coordinate the 12 specialized production skills in this workspace:
 9. `security-director`: Security-by-design, STRIDE threat modeling, server-side authorization (BOLA/IDOR), AI agent safety.
 10. `premium-web`: Frontend creative developer & web experience architect (Next.js, Vite, HTML/CSS/JS).
 11. `premium-flutter`: Cross-platform Flutter architect & mobile UI specialist (iOS, Android, Desktop, Web).
-12. `final-product-critic`: Independent quality control, 13-point product review, P0-P3 severity matrix, ship readiness verdict.
+12. `backend-architect`: API design, database schemas (Supabase/Postgres), serverless functions, RLS policies, REST/GraphQL.
+13. `ml-pipeline-architect`: Data pipelines, model serving, RAG architectures, Python AI integrations, MLOps.
+14. `qa-testing-specialist`: Unit, integration, E2E, and widget test writing (Vitest, Playwright, flutter_test).
+15. `devops-deployment-engineer`: Docker, CI/CD pipelines, hosting, monitoring, rollback procedures.
+16. `final-product-critic`: Independent quality control, 13-point product review, P0-P3 severity matrix, ship readiness verdict.
 
 ---
 
 ## 3. Product Category Detection & Skill Selection Matrix
 
-Classify the project into one of three core product categories to determine routing rules:
+Classify the project into one of five core product categories to determine routing rules:
 
 ```
                                   ┌───────────────────────────────┐
                                   │   User Request Analysis       │
                                   └───────────────┬───────────────┘
                                                   │
-      ┌───────────────────────────────────────────┼───────────────────────────────────────────┐
-      ▼                                           ▼                                           ▼
-┌───────────┐                               ┌───────────┐                               ┌───────────┐
-│    WEB    │                               │  FLUTTER  │                               │ AI AGENT/ │
-│  PRODUCT  │                               │  PRODUCT  │                               │ ASSISTANT │
-└─────┬─────┘                               └─────┬─────┘                               └─────┬─────┘
-      │                                           │                                           │
-- design-director                           - design-director                           - design-director
-- premium-web                               - premium-flutter                           - platform skill (Web/Flutter)
-- anti-ai-design                            - anti-ai-design                            - security-director (Mandatory)
-- performance-engineer                      - performance-engineer                      - performance-engineer
-- accessibility-director                    - accessibility-director                    - accessibility-director
-- security-director                         - security-director                         - final-product-critic
-- final-product-critic                      - final-product-critic                      
+  ┌────────────┬────────────┬─────┼─────┬────────────┐
+  ▼            ▼            ▼           ▼            ▼
+┌──────┐  ┌──────┐   ┌───────────┐ ┌──────────┐ ┌──────────┐
+│ WEB  │  │FLUTTER│   │ AI AGENT/ │ │FULL-STACK│ │ ML/DATA  │
+│PRODUCT│  │PRODUCT│   │ ASSISTANT │ │  APP     │ │ PIPELINE │
+└──┬───┘  └──┬───┘   └────┬──────┘ └────┬─────┘ └────┬─────┘
+   │         │            │             │             │
+- design    - design    - design      - design      - ml-pipeline
+- premium   - premium   - platform    - premium     - backend
+  -web        -flutter    skill         -web/flutter - qa-testing
+- anti-ai   - anti-ai   - security    - backend     - devops
+- perf      - perf        (Mandatory) - qa-testing  - performance
+- a11y      - a11y      - perf        - devops      - security
+- security  - security  - a11y        - security    - final-critic
+- critic    - critic    - critic      - a11y
+                                      - critic
 ```
 
 ### Skill Selection Rules
@@ -86,6 +92,10 @@ Classify the project into one of three core product categories to determine rout
   - `motion-director`: Activate when complex choreography, gesture tracking, or custom transitions are requested.
   - `asset-director`: Activate when custom photography, 3D GLB assets, video pipelines, or SVG symbol systems are needed.
   - `domain-specific-skills-director`: Activate for industry-heavy applications (Fintech, Healthcare, DevTools, EdTech).
+  - `backend-architect`: Activate when the project involves APIs, databases, serverless functions, or server-side logic.
+  - `ml-pipeline-architect`: Activate when the project involves ML models, data pipelines, AI integrations, RAG, or model serving.
+  - `qa-testing-specialist`: Activate for any non-trivial project. Write tests, not just code.
+  - `devops-deployment-engineer`: Activate when the project requires containerization, CI/CD, or production deployment.
   - **Framework Rule**: Never activate `premium-web` and `premium-flutter` together unless the project explicitly contains both web and Flutter surfaces.
 
 ---
@@ -113,17 +123,23 @@ Phase 3: Parallel Specialists  │
         │                      │                      │
         └──────────────────────┼──────────────────────┘
                                │
-Phase 4: Implementation        ▼
+Phase 4: Backend & ML           ▼ (If applicable)
+  ┌─────────────────────────────────────────────────────────┐
+  │  Backend Architect  ──►  ML Pipeline Architect          │
+  └────────────────────────────┬────────────────────────────┘
+                               │
+Phase 5: Implementation        ▼
   ┌─────────────────────────────────────────────────────────┐
   │   Premium Web OR Premium Flutter Code Implementation    │
   └────────────────────────────┬────────────────────────────┘
                                │
-Phase 5: Audits & Fix Loop     ▼
+Phase 6: Quality & Audits      ▼
   ┌─────────────────────────────────────────────────────────┐
-  │  Performance  ──►  Accessibility  ──►  Security Audits  │
+  │  QA Tests  ──►  Performance  ──►  Accessibility  ──►   │
+  │  Security Audits  ──►  DevOps Pipeline                  │
   └────────────────────────────┬────────────────────────────┘
                                │
-Phase 6: Final Review Gate     ▼
+Phase 7: Final Review Gate     ▼
   ┌─────────────────────────────────────────────────────────┐
   │            Gate 5: Final Product Critic                 │
   └────────────────────────────┬────────────────────────────┘
@@ -164,6 +180,10 @@ When specialist requirements conflict, resolve according to this strict hierarch
   - *WebGL/3D frame drops* → Route to `3d-experience-director` + `performance-engineer`.
   - *Unannounced form errors* → Route to `accessibility-director`.
   - *Unsafe AI tool execution* → Route to `security-director`.
+  - *API/DB failures or data integrity issues* → Route to `backend-architect`.
+  - *ML model accuracy or pipeline failures* → Route to `ml-pipeline-architect`.
+  - *Missing test coverage on critical paths* → Route to `qa-testing-specialist`.
+  - *Deployment or CI/CD failures* → Route to `devops-deployment-engineer`.
 
 ---
 
@@ -171,7 +191,7 @@ When specialist requirements conflict, resolve according to this strict hierarch
 
 When orchestrating a major product, construct an internal **Orchestration Matrix Plan**.
 
-*For a concrete example of an orchestration plan document, see [references/orchestration_matrix_template.md](file:///d:/Antigrvity%20master/.agents/skills/master-orchestrator/references/orchestration_matrix_template.md).*
+*For a concrete example of an orchestration plan document, see [references/orchestration_matrix_template.md](./references/orchestration_matrix_template.md).*
 
 ```markdown
 # Product Orchestration Matrix: [Product Name]

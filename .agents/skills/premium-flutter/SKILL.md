@@ -171,7 +171,7 @@ For real-time streaming text or voice AI interfaces:
 
 When activated, produce a structured **Premium Flutter Implementation Strategy** document covering the following 31 points. When code generation is explicitly requested, generate production-grade Flutter/Dart code.
 
-*For a concrete example of a completed implementation strategy document, see [references/implementation_plan_template.md](file:///d:/Antigrvity%20master/.agents/skills/premium-flutter/references/implementation_plan_template.md).*
+*For a concrete example of a completed implementation strategy document, see [references/implementation_plan_template.md](./references/implementation_plan_template.md).*
 
 1. **Project & Flutter Audit**: Target Flutter/Dart SDK versions and dependency integration plan.
 2. **Product Experience Architecture**: Core user journey and mobile interaction goals.
@@ -204,3 +204,21 @@ When activated, produce a structured **Premium Flutter Implementation Strategy**
 29. **Platform & Real Device QA**: Device testing matrix across iOS, Android, Desktop, and Web.
 30. **Production Quality Checklist**: Zero overflow stripes, zero memory leaks, zero debug logs.
 31. **Production Deployment Plan**: App Store / Play Store release build configuration.
+
+---
+
+## 10. Evaluation Prompts & Self-Test Matrix
+
+Use these 3 realistic test prompts to verify premium flutter intelligence:
+
+1. **Test Prompt 1 (8-State Widget Template)**:
+   > *"Implement a premium async data list screen for a Flutter inventory app."*
+   > - **Expected Behavior**: Generates a complete screen widget handling all 8 states: Default (data loaded), Hover (desktop only via `MouseRegion`), Focus (keyboard `FocusNode`), Active/Pressed (`Transform.scale(0.98)`), Disabled (`IgnorePointer` + opacity 0.5), Loading (shimmer skeleton), Error (friendly message + retry button), Empty (guided next-action empty state). Uses `const` constructors and `RepaintBoundary` where appropriate.
+
+2. **Test Prompt 2 (Adaptive Platform Strategy)**:
+   > *"Build a messaging app that works on phone, tablet, and desktop."*
+   > - **Expected Behavior**: Implements adaptive layouts: Phone (`<600dp`) with `BottomNavigationBar` + conversation list → detail push navigation. Tablet (`600-1024dp`) with `NavigationRail` + 2-column split view. Desktop with permanent sidebar + multi-pane. Uses `LayoutBuilder` breakpoints, not separate widget trees. Enforces 48x48dp touch targets on mobile.
+
+3. **Test Prompt 3 (State Management & Isolate Offloading)**:
+   > *"Our Flutter app freezes for 2 seconds when loading a 5MB JSON dataset."*
+   > - **Expected Behavior**: Diagnoses main thread JSON parsing as root cause. Moves parsing to `Isolate.run()`. Shows shimmer loading state during parse. Uses `ValueListenableBuilder` for incremental UI updates. Implements `const` constructors on list item widgets to prevent full-tree rebuilds.
