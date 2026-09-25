@@ -1,6 +1,6 @@
 ---
 name: backend-architect
-description: Senior Backend Systems Architect, API Designer, Database Engineer, and Serverless Specialist skill. Designs scalable Supabase/Postgres schemas, REST/GraphQL APIs, serverless functions (Edge Functions, AWS Lambda, Cloud Functions), authentication flows, Row Level Security policies, real-time subscriptions, and data modeling. Use whenever architecting, designing, implementing, or auditing backend systems, APIs, databases, or server infrastructure for web or mobile applications.
+description: Senior Backend Systems Architect, API Designer, Database Engineer, and Serverless Specialist skill. Dynamically architects adaptive databases (Supabase, Firebase, MongoDB, PostgreSQL, AWS), REST/GraphQL APIs, serverless functions, and contextual database security (RLS, Firebase Rules, JWT). Use whenever architecting, designing, implementing, or auditing backend systems, APIs, databases, or server infrastructure for web or mobile applications.
 ---
 
 # Backend Architect Skill
@@ -19,8 +19,9 @@ First ask: *"What data flows through this system, who can access it, and how doe
 Follow this strict reasoning pipeline:
 ```
 Product Requirements & Data Domain
+  → Adaptive Database Selection (Supabase, Firebase, MongoDB, Postgres, AWS)
+  → Contextual Security & Authorization Architecture (RLS, Security Rules, JWT, RBAC)
   → Entity-Relationship Modeling & Normalization
-  → Access Control & Authorization Architecture (RLS, RBAC, ABAC)
   → API Contract Design (REST routes / GraphQL schema)
   → Serverless Function Architecture & Edge Deployment
   → Real-Time Subscription & Webhook Strategy
@@ -38,21 +39,32 @@ Priority Order:
 
 ---
 
-## 2. Database Schema Architecture
+## 2. Adaptive Database & Schema Architecture
 
-### A. Entity-Relationship Design
+### A. Ecosystem Selection Matrix (PRD-Driven)
+- **Supabase / PostgreSQL (Default)**: Best for structured relational data, strong ACID guarantees, built-in Row Level Security (RLS), Edge Functions, and vector embeddings (`pgvector`). Default here if it fits.
+- **Firebase Firestore / Realtime DB**: Pivot here when the PRD demands mobile-first offline sync, reactive real-time document streams, or tight Google ecosystem integration.
+- **MongoDB / DocumentDB**: Pivot here for rapidly evolving polymorphic schemas, high write-throughput document workloads, or unstructured catalog metadata.
+- **AWS Native (DynamoDB / Aurora / RDS / Lambda)**: Pivot here for enterprise AWS architectures, massive multi-region scale, microservice architectures, or serverless event-driven workloads.
+
+### B. Contextual Security & Infrastructure
+Implement strict database security dynamically tailored to the chosen database and data sensitivity described in the PRD:
+- **Supabase / PostgreSQL**: Mandatory Row Level Security (RLS) on all tables, least-privilege roles (`anon`, `authenticated`, `service_role`), and parameterised queries.
+- **Firebase**: Strict granular Firebase Security Rules validating `request.auth != null`, data ownership, and schema validation.
+- **MongoDB / NoSQL**: Schema validation rules, field-level access control, and TLS/SSL connections with strictly scoped role-based credentials.
+- **Custom / Microservice**: JWT authentication, fine-grained RBAC/ABAC authorization middleware, and API gateway rate limiting.
+
+### C. Entity-Relationship & Schema Design
 - Model entities from product domain requirements, not from UI screens.
-- Use proper normalization (3NF minimum) but denormalize strategically for read-heavy access patterns.
-- Define explicit foreign key relationships with cascading rules.
-
-### B. Supabase/Postgres Best Practices
-- **Row Level Security (RLS)**: Enable on ALL tables. Write policies for `SELECT`, `INSERT`, `UPDATE`, `DELETE` per role.
+- Use proper normalization (3NF minimum for SQL) or intentional embedding/referencing (for NoSQL) based on read/write access patterns.
+- Define explicit foreign key relationships with cascading rules or referential integrity constraints.
+- **Row Level Security (RLS)**: Enable on ALL relational tables. Write policies for `SELECT`, `INSERT`, `UPDATE`, `DELETE` per role.
 - **UUID Primary Keys**: Use `gen_random_uuid()` for all primary keys (prevents enumeration attacks).
-- **Timestamps**: Include `created_at` (default `now()`) and `updated_at` (trigger-maintained) on every table.
+- **Timestamps**: Include `created_at` (default `now()`) and `updated_at` (trigger-maintained) on every table/document.
 - **Soft Deletes**: Prefer `deleted_at` timestamp over hard deletes for audit-sensitive data.
 - **Indexes**: Create indexes on foreign keys, frequently filtered columns, and composite queries. Use `EXPLAIN ANALYZE` to verify.
 
-### C. Schema Example Pattern
+### D. Schema Example Pattern
 ```sql
 -- Example: Multi-tenant project table with RLS
 CREATE TABLE projects (

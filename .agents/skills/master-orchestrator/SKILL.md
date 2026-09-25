@@ -50,7 +50,7 @@ Direct and coordinate the 16 specialized production skills in this workspace:
 9. `security-director`: Security-by-design, STRIDE threat modeling, server-side authorization (BOLA/IDOR), AI agent safety.
 10. `premium-web`: Frontend creative developer & web experience architect (Next.js, Vite, HTML/CSS/JS).
 11. `premium-flutter`: Cross-platform Flutter architect & mobile UI specialist (iOS, Android, Desktop, Web).
-12. `backend-architect`: API design, database schemas (Supabase/Postgres), serverless functions, RLS policies, REST/GraphQL.
+12. `backend-architect`: Adaptive API & DB architecture (Supabase, Firebase, MongoDB, PostgreSQL, AWS), serverless functions, contextual security (RLS, Security Rules, JWT), REST/GraphQL.
 13. `ml-pipeline-architect`: Data pipelines, model serving, RAG architectures, Python AI integrations, MLOps.
 14. `qa-testing-specialist`: Unit, integration, E2E, and widget test writing (Vitest, Playwright, flutter_test).
 15. `devops-deployment-engineer`: Docker, CI/CD pipelines, hosting, monitoring, rollback procedures.
