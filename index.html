@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Note Application — QuickNote Pop! Funky Clay Notes</title>
+  <meta name="description" content="A funky claymorphic single-page note application demonstrating request-response flow and persistent storage.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Landmark -->
+  <header class="app-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-avatar" aria-hidden="true">
+          <span class="avatar-emoji">📝</span>
+        </div>
+        <div class="brand-info">
+          <h1 class="brand-title">QuickNote <span class="brand-pop">Pop!</span></h1>
+          <p class="brand-tagline">✨ Funky Clay Notes &amp; Live Request-Response</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Live Backend / Storage Status Pill -->
+        <div id="backendStatusPill" class="status-pill status-connected" title="Storage Engine Status">
+          <span class="status-indicator"></span>
+          <span id="backendStatusText" class="status-label">Storage Active</span>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button id="themeToggleBtn" class="btn-clay-icon" aria-label="Toggle dark/light mode" title="Toggle Theme">
+          <span id="themeEmoji" class="theme-emoji">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="app-layout" role="main">
+    <!-- Left Column: Note Creation Studio -->
+    <section class="creation-panel clay-card" aria-labelledby="createHeading">
+      <div class="panel-header">
+        <div class="panel-header-icon" aria-hidden="true">✏️</div>
+        <div>
+          <h2 id="createHeading" class="panel-title">Jot a Note</h2>
+        </div>
+      </div>
+
+      <form id="noteForm" class="note-form" novalidate>
+        <!-- Title Input -->
+        <div class="form-group">
+          <label for="noteTitle" class="form-label">
+            Title <span class="required-star">*</span>
+          </label>
+          <input
+            type="text"
+            id="noteTitle"
+            name="title"
+            class="clay-input"
+            placeholder="e.g. Secret Burger Recipe 🍔..."
+            maxlength="200"
+            required
+            autocomplete="off"
+          />
+          <div class="form-hint" id="titleHint">Give your note a catchy, fun title!</div>
+        </div>
+
+        <!-- Category & Color Picker Grid -->
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label for="noteCategory" class="form-label">Tag Category</label>
+            <div class="select-wrapper">
+              <select id="noteCategory" name="category" class="clay-select">
+                <option value="General">📝 General</option>
+                <option value="Work">💼 Work</option>
+                <option value="Ideas">💡 Ideas</option>
+                <option value="Tasks">🎯 Tasks</option>
+                <option value="Snippets">💻 Snippets</option>
+                <option value="Architecture">📐 Architecture</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group flex-1">
+            <label class="form-label">Clay Mood Color</label>
+            <div class="color-picker-row" role="radiogroup" aria-label="Note mood color">
+              <label class="color-swatch-label">
+                <input type="radio" name="color" value="amber" checked>
+                <span class="clay-swatch swatch-amber" title="Amber Yellow"></span>
+              </label>
+              <label class="color-swatch-label">
+                <input type="radio" name="color" value="emerald">
+                <span class="clay-swatch swatch-emerald" title="Mint Emerald"></span>
+              </label>
+              <label class="color-swatch-label">
+                <input type="radio" name="color" value="indigo">
+                <span class="clay-swatch swatch-indigo" title="Lilac Purple"></span>
+              </label>
+              <label class="color-swatch-label">
+                <input type="radio" name="color" value="crimson">
+                <span class="clay-swatch swatch-crimson" title="Coral Berry"></span>
+              </label>
+              <label class="color-swatch-label">
+                <input type="radio" name="color" value="slate">
+                <span class="clay-swatch swatch-slate" title="Sky Blue"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Note Content Area -->
+        <div class="form-group">
+          <div class="label-with-meta">
+            <label for="noteContent" class="form-label">
+              Your Thoughts <span class="required-star">*</span>
+            </label>
+            <span id="charCount" class="char-counter">0 / 10,000</span>
+          </div>
+          <textarea
+            id="noteContent"
+            name="content"
+            class="clay-textarea"
+            rows="5"
+            placeholder="Write whatever is on your mind... thoughts, checklists, code or brilliant ideas!"
+            maxlength="10000"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Form Actions & Keyboard Hint -->
+        <div class="form-footer">
+          <span class="keyboard-tip" aria-hidden="true">
+            <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to save
+          </span>
+          <button type="submit" id="saveNoteBtn" class="btn-clay btn-clay-primary">
+            <span class="btn-spinner" aria-hidden="true"></span>
+            <span class="btn-text">Save Note</span>
+            <span class="btn-emoji" aria-hidden="true">🚀</span>
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Right Column: Note Ledger & Filters -->
+    <section class="ledger-panel" aria-labelledby="ledgerHeading">
+      <!-- Ledger Control Bar -->
+      <div class="ledger-controls clay-card">
+        <div class="search-wrapper">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input
+            type="search"
+            id="searchInput"
+            class="clay-search-input"
+            placeholder="Search through your notes..."
+            aria-label="Search notes"
+          />
+          <button id="clearSearchBtn" class="clear-search-btn" style="display: none;" aria-label="Clear search">✕</button>
+        </div>
+
+        <div class="ledger-summary">
+          <span id="notesCountBadge" class="clay-badge">0 notes</span>
+          <button id="refreshBtn" class="btn-clay-icon" aria-label="Reload notes from storage" title="Refresh Notes">
+            <span>🔄</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Filter Chips -->
+      <nav class="category-chips" aria-label="Filter notes by category" id="categoryChips">
+        <button class="clay-chip active" data-category="All">✨ All</button>
+        <button class="clay-chip" data-category="General">📝 General</button>
+        <button class="clay-chip" data-category="Work">💼 Work</button>
+        <button class="clay-chip" data-category="Ideas">💡 Ideas</button>
+        <button class="clay-chip" data-category="Tasks">🎯 Tasks</button>
+        <button class="clay-chip" data-category="Snippets">💻 Snippets</button>
+        <button class="clay-chip" data-category="Architecture">📐 Architecture</button>
+      </nav>
+
+      <!-- Dynamic Note Cards Container (Accessible Live Region) -->
+      <div
+        id="notesGrid"
+        class="notes-grid"
+        role="region"
+        aria-live="polite"
+        aria-label="List of stored notes"
+      >
+        <!-- Loading Skeleton -->
+        <div class="clay-card note-skeleton">
+          <div class="skeleton-line title"></div>
+          <div class="skeleton-line body"></div>
+          <div class="skeleton-line body short"></div>
+        </div>
+      </div>
+
+      <!-- Empty State View -->
+      <div id="emptyState" class="empty-state clay-card" style="display: none;">
+        <div class="empty-emoji-bounce" aria-hidden="true">🎈</div>
+        <h3 class="empty-title">Your Pinboard is Empty!</h3>
+        <p class="empty-desc">Jot down your first awesome idea in the creator panel on the left, and watch it pop up right here!</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Live Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" role="status" aria-live="polite"></div>
+
+  <!-- Custom Pop-up Cartoon Confirmation Modal for Delete -->
+  <dialog id="deleteModal" class="clay-modal">
+    <div class="modal-clay-content">
+      <div class="modal-mascot" aria-hidden="true">🗑️</div>
+      <h3 id="deleteModalTitle" class="modal-clay-title">Delete this note?</h3>
+      <p id="deleteModalDesc" class="modal-clay-desc">Are you sure you want to remove this note? It will vanish from your saved ledger forever!</p>
+      <div class="modal-clay-actions">
+        <button id="cancelDeleteBtn" class="btn-clay btn-clay-secondary">Keep it! ✌️</button>
+        <button id="confirmDeleteBtn" class="btn-clay btn-clay-danger">Yes, Delete! 💥</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Application Logic -->
+  <script src="js/app.js"></script>
+</body>
+</html>
