@@ -193,6 +193,55 @@ d:\Antigrvity master\
 
 ---
 
+## 📝 Quick Note Application (FastAPI + SQLite + SPA)
+
+The repository includes a complete, educational, and production-grade **Quick Note Application** engineered to demonstrate the fundamental **HTTP Request-Response lifecycle** and **SQLite persistence**, with a dual-deployment pathway for **GitHub Pages** (Frontend) and **Render / Railway / Local** (Python Backend).
+
+### Architecture at a Glance
+- **Frontend SPA**: Vanilla HTML5 / CSS3 / ES6+ JavaScript located in [frontend/](./frontend/) and mirrored to [docs/](./docs/) for zero-build GitHub Pages deployment.
+- **Backend API**: Python FastAPI application in [backend/](./backend/) and [app.py](./app.py) providing REST endpoints (GET, POST, PUT, DELETE).
+- **Database**: ACID-compliant SQLite (notes.db) with parameterized queries protecting against SQL injection.
+- **Request-Response Telemetry Inspector**: An interactive live panel that visually breaks down every step of the HTTP exchange:
+  1. Client creates JSON payload.
+  2. Asynchronous fetch() dispatches POST /api/notes.
+  3. Python FastAPI parses and validates using Pydantic models.
+  4. SQLite commits INSERT INTO notes using parameterized SQL.
+  5. Backend returns HTTP 201 Created with the persisted note.
+  6. Frontend updates the DOM dynamically on the same page without refreshing.
+
+### Quick Start (Local Unified Mode)
+Run both frontend and backend on http://localhost:8000 with a single command:
+\\ash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Start the application
+python app.py
+# Or on Windows: double-click run.bat
+\Visit **http://localhost:8000** in your browser. API Swagger documentation is available at **http://localhost:8000/docs**.
+
+### Automated Verification & Testing
+\\ash
+# Run deterministic end-to-end verification (8/8 checks)
+python execution/verify_app.py
+
+# Run comprehensive pytest suite (10/10 passed)
+python -m pytest tests/test_backend.py -v
+\
+### GitHub Pages & Cloud Deployment Guide
+1. **GitHub Pages (Frontend)**:
+   - Push this repository to GitHub.
+   - Go to **Settings > Pages > Build and deployment**.
+   - Under **Source**, choose **GitHub Actions** (the workflow at [.github/workflows/deploy.yml](./.github/workflows/deploy.yml) will deploy automatically) OR choose **Deploy from a branch** and select /docs.
+   - Your frontend will be live at \https://<your-username>.github.io/<repo-name>/\.
+2. **Connecting Live Python Backend to GitHub Pages**:
+   - Because GitHub Pages only serves static files (HTML/CSS/JS), it cannot execute Python or SQLite directly on GitHub servers.
+   - If opened on GitHub Pages without a backend, the app automatically runs in **Interactive Static Demo Mode** (persisting notes in localStorage) and alerts the user.
+   - To connect real server persistence, deploy the backend to Render (using the included ender.yaml\ or \Procfile\), copy your live backend URL (e.g. \https://my-quick-note.onrender.com\), click the **Gear Icon (Settings)** in the web header, paste the URL, and click **Save & Test Connection**.
+   - Your GitHub Pages frontend will now communicate directly with your live cloud Python backend!
+
+---
+
 ## 🛠️ Installation & Environment Setup
 
 ### Prerequisites
